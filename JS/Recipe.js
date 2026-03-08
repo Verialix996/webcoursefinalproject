@@ -98,10 +98,10 @@ if (addToCartBtn) {
 
         localStorage.setItem('smartCart', JSON.stringify(cart));
 
-        // פידבק ויזואלי
+        // פידבק ויזואלי + מעבר לסל קניות
         const feedback = document.getElementById('cartFeedback');
         if (feedback) {
-            feedback.textContent = `✅ ${recipe.ingredients.length} מרכיבים נוספו לסל הקניות`;
+            feedback.textContent = `✅ ${recipe.ingredients.length} מרכיבים נוספו לסל הקניות – עובר לסל...`;
             feedback.style.display = 'block';
         }
 
@@ -110,6 +110,11 @@ if (addToCartBtn) {
         this.classList.remove('btn-primary');
         this.classList.add('btn-outline');
         this.disabled = true;
+
+        // מעבר אוטומטי לסל קניות אחרי שניה
+        setTimeout(() => {
+            window.location.href = 'SmartCart.html';
+        }, 1000);
     });
 }
 
