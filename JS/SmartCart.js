@@ -69,13 +69,13 @@ function renderCart() {
                     ${cat}
                     <span class="cat-count">${items.length}</span>
                 </h3>
-                <ul class="cart-items-list" id="cat-${encodeURIComponent(cat)}"></ul>
+                <ul class="cart-items-list"></ul>
             </section>
         `);
 
         body.append(section);
 
-        const list = $(`#cat-${encodeURIComponent(cat)}`);
+        const list = section.find('.cart-items-list');
 
         items.forEach((item, idx) => {
             const li = $(`
